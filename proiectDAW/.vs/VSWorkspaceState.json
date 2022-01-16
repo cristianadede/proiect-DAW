@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Data",
+    "\\Migrations",
     "\\Models",
-    "\\Models\\Base"
+    "\\Models\\Base",
+    "\\Models\\Many-to-Many",
+    "\\Models\\One-to-Many"
   ],
-  "SelectedNode": "\\Models\\Base\\BaseEntity.cs",
+  "SelectedNode": "\\Data\\Context.cs",
   "PreviewInSolutionExplorer": false
 }

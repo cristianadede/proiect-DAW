@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace proiectDAW.Models.Base
 {
     public class BaseEntity : IBaseEntity
-    {   
+    {
         [Key] //primary key 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //pt autoincrementare (genereaza o val atunci cand se insereaza o linie)
         public Guid Id { get; set; }
