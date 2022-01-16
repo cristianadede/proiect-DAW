@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using proiectDAW.Data;
 
 namespace proiectDAW.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220116164131_addActorandActorFilmTables")]
+    partial class addActorandActorFilmTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,9 +135,6 @@ namespace proiectDAW.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DetaliuId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("GenId")
                         .HasColumnType("uniqueidentifier");
 
@@ -146,9 +145,6 @@ namespace proiectDAW.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DetaliuId")
-                        .IsUnique();
 
                     b.HasIndex("GenId");
 
@@ -310,34 +306,6 @@ namespace proiectDAW.Migrations
                     b.ToTable("Models2");
                 });
 
-            modelBuilder.Entity("proiectDAW.Models.One_to_One.Detaliu", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataCreare")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DataModificare")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Descriere")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Durata")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("FilmId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Detalius");
-                });
-
             modelBuilder.Entity("proiectDAW.Models.One_to_One.Model5", b =>
                 {
                     b.Property<Guid>("Id")
@@ -420,12 +388,6 @@ namespace proiectDAW.Migrations
 
             modelBuilder.Entity("proiectDAW.Models.Many_to_Many.Film", b =>
                 {
-                    b.HasOne("proiectDAW.Models.One_to_One.Detaliu", "Detaliu")
-                        .WithOne("Film")
-                        .HasForeignKey("proiectDAW.Models.Many_to_Many.Film", "DetaliuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("proiectDAW.Models.One_to_Many.Gen", "Gen")
                         .WithMany("Films")
                         .HasForeignKey("GenId")
