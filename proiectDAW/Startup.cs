@@ -8,6 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using proiectDAW.Repository.DatabaseRepository;
+using proiectDAW.Servicii;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +36,9 @@ namespace proiectDAW
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "proiectDAW", Version = "v1" });
             });
+
+            services.AddTransient<IDatabaseRepository, DatabaseRepository>();
+            services.AddTransient<IServicii, Servicii2>();
 
             services.AddDbContext<Data.Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
