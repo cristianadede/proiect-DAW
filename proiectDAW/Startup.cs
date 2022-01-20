@@ -10,7 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using proiectDAW.Repository.DatabaseRepository;
 using proiectDAW.Servicii;
-
+using proiectDAW.Utilities;
+using proiectDAW.Utilities.JWT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,11 @@ namespace proiectDAW
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "proiectDAW", Version = "v1" });
             });
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddTransient<IDatabaseRepository, DatabaseRepository>();
             services.AddTransient<IServicii, Servicii2>();
+            services.AddScoped<IJwt, Jwt>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<Data.Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
@@ -56,6 +60,8 @@ namespace proiectDAW
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //adaugat de noi
+            app.UseMiddleware<JWTMiddleware>();
 
             app.UseAuthorization();
 

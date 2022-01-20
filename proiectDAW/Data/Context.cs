@@ -41,11 +41,14 @@ namespace proiectDAW.Data
 
         //pt Detaliu (1-1 cu film)
         public DbSet<Detaliu> Detalius { get; set; }
+
+        //constructor
         public Context(DbContextOptions<Context>options) : base(options)
         {
 
         }
 
+        //relatiile intre tabele
         protected override void OnModelCreating (ModelBuilder modelBuilder)
         {
             // pt one-to-many

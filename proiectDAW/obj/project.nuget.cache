@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/Wc/CT/quq521EDSL7VffmD4sKC6NDsKNMfpY7cVVZyJWJ2kgya0+b/sar82EvKNNkYcoo+fXYL2MiJF+KZhQg==",
+  "dgSpecHash": "eXmxi69z6jwqa8wlgf9FrMTdliALedbRL70h/U/741FeZBHTeqmxuWnSIBopjIGoOM63t+8gO0OUetrBBHsaDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\40732\\source\\repos\\proiectDAW\\proiectDAW\\proiectDAW.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\40732\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\40732\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\40732\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\40732\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\40732\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\40732\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\40732\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
