@@ -1,4 +1,5 @@
-﻿using Org.BouncyCastle.Crypto.Generators;
+﻿//using Org.BouncyCastle.Crypto.Generators;
+//using BCrypt.Net.BCrypt;
 using proiectDAW.Data;
 using proiectDAW.Models.DTO;
 using proiectDAW.Models.Many_to_Many;

@@ -54,4 +54,3 @@ C:\Users\40732\source\repos\proiectDAW\proiectDAW\obj\Debug\net5.0\ref\proiectDA
 C:\Users\40732\source\repos\proiectDAW\proiectDAW\obj\Debug\net5.0\proiectDAW.pdb
 C:\Users\40732\source\repos\proiectDAW\proiectDAW\obj\Debug\net5.0\proiectDAW.genruntimeconfig.cache
 C:\Users\40732\source\repos\proiectDAW\proiectDAW\bin\Debug\net5.0\BouncyCastle.Crypto.dll
-C:\Users\40732\source\repos\proiectDAW\proiectDAW\obj\Debug\net5.0\proiectDAW.csproj.AssemblyReference.cache

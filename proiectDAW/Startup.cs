@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using proiectDAW.Repository.DatabaseRepository;
+using proiectDAW.Repository.GenRepository;
 using proiectDAW.Servicii;
 using proiectDAW.Utilities;
 using proiectDAW.Utilities.JWT;
@@ -41,6 +42,8 @@ namespace proiectDAW
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddTransient<IDatabaseRepository, DatabaseRepository>();
             services.AddTransient<IServicii, Servicii2>();
+            services.AddTransient<IGenService, GenService>();
+            services.AddTransient<IGenRepository, GenRepository>();
             services.AddScoped<IJwt, Jwt>();
             services.AddScoped<IUserService, UserService>();
 
