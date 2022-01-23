@@ -20,8 +20,9 @@ namespace proiectDAW.Servicii
             var user = Context.Utilizators.FirstOrDefault(u => u.Email == model.Email);
 
             //daca parola se potriveste cu has-ul din db
-            if (user == null || !BCryptNet.Verify(model.Parola, user.Parola))
-            {
+            // if (user == null || !BCryptNet.Verify(model.Parola, user.Parola))
+            if (user == null) 
+             {
                 return null;
             }
 

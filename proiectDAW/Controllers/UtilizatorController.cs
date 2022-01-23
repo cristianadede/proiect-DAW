@@ -45,7 +45,7 @@ namespace proiectDAW.Controllers
                 Nume = user.Nume,
                 Prenume = user.Prenume,
                 Email = user.Email,
-                Parola = BCrypt.Net.Bcrypt.HashPassword(user.Parola),
+               // Parola = BCrypt.Net.Bcrypt.HashPassword(user.Parola),
                 Rol = Rol.User
             };
 

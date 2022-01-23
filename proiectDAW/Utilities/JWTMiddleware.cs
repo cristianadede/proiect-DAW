@@ -12,6 +12,12 @@ namespace proiectDAW.Utilities
     {
         //sa treaca in start-up la urm middleware
         private readonly RequestDelegate _next;
+
+        public JWTMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
         public async Task Invoke(HttpContext httpContext, IUserService userService, IJwt jwtUtils)
         {
             //Bearer -token- (facem split ca sa luam doar partea de final)
@@ -25,5 +31,6 @@ namespace proiectDAW.Utilities
 
             await _next(httpContext);
         }
+
     }
 }
