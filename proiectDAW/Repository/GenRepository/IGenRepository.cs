@@ -11,5 +11,6 @@ namespace proiectDAW.Repository.GenRepository
     {
         Gen GetByTitle(string title);
         Gen GetById(Guid id);
+        void updateGen(Gen gen);
     }
 }

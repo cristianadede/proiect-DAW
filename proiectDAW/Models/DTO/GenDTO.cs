@@ -7,7 +7,7 @@ namespace proiectDAW.Models.DTO
 {
     public class GenDTO
     {
-       public Guid Id { get; set; }
+    
         public string NumeGen { get; set; }
     }
 }

@@ -1,0 +1,19 @@
+
+<h4>Bine ai venit, {{user.email}}!</h4>
+ <div class="form-grup">
+     <label>Email</label>
+     <input class="form-control" [(ngModel)]="user.email" (keydown.enter)="doLogin()"/>
+ </div>
+ <div class="form-grup">
+    <label>Parola</label>
+    <input class="form-control" type="password" [(ngModel)]="user.parola"/>
+</div>
+<!--dispare din DOM-->
+<div class="alert alert-danger" *ngIf="error">{{error}}</div>
+<!-- este doar hidden-->
+<div class="alert alert-danger" [hidden]="!error">{{error}}</div>
+
+<button 
+[class] = "isDisabled ? 'btn btn-primary' : 'btn btn-success'"
+[disabled]="isDisabled" (click)="doLogin()">Login
+</button>

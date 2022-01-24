@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using proiectDAW.Data;
@@ -48,8 +49,43 @@ namespace proiectDAW.Controllers
             return Ok(result);
         }
 
+        //create -dafault
+        [HttpPost("createGen")]
+        public IActionResult createGen(Gen gen)
+        {
+           var response = _genService.CreateGen(gen);
+            return Ok(response);
+        }
 
+    
+        //update - custom
+        [HttpPatch("{colId}")]
+        public IActionResult Patch([FromRoute] string colId, [FromBody] JsonPatchDocument<Gen> gen)
+        {
+            Guid parsedId = new Guid(colId);
+            Gen genToUpdate = _genService.FindById(parsedId); if (genToUpdate == null)
+            {
+                return NotFound();
+            }
+            gen.ApplyTo(genToUpdate, ModelState); // Must have Microsoft.AspNetCore.Mvc.NewtonsoftJson installed
+            _genService.Save(); 
+            
+            return Ok(genToUpdate);
+        }
 
+        //delete
+        [HttpDelete("{deleteId}")]
+        public IActionResult DeleteGen([FromRoute] string deleteId)
+        {
+            Guid parsedId = new Guid(deleteId);
+            Gen genToDelete = _genService.FindById(parsedId); if (genToDelete == null)
+            {
+                return NotFound();
+            }
+            _genService.deleteGen(genToDelete);
+            _genService.Save();
 
+            return Ok(genToDelete);
+        }
     }
 }

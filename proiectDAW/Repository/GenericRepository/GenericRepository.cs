@@ -89,28 +89,19 @@ namespace proiectDAW.Repository.GenericRepository
         } 
 
         //Salvare
-        public async Task<bool> Save()
-        {
-            try
-            {
-                return await _context.SaveChangesAsync() > 0;
-
-            } catch (SqlException ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-            return false;
-        }
+   
 
         public void Create(TEntity entity)
         {
             _table.Add(entity);
         }
 
-        bool IGenericRepository<TEntity>.Save()
+
+        public bool Save()
         {
-            throw new NotImplementedException();
+           
+            return _context.SaveChanges() > 0;
+        
         }
 
         public Task<bool> SaveAsync()

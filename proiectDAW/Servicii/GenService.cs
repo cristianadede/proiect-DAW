@@ -17,8 +17,17 @@ namespace proiectDAW.Servicii
         {
             _genRepository = genRepository;
         }
-
+        //save
+        public void Save()
+        {
+            _genRepository.Save();
+        }
         //get by id, by nume gen
+
+        public Gen FindById(Guid id)
+        {
+            return _genRepository.FindById(id);
+        }
         public GenDTO getById (Guid id)
         {
             Gen gen = _genRepository.FindById(id);
@@ -36,7 +45,7 @@ namespace proiectDAW.Servicii
             GenDTO genDTO = new GenDTO()
             {
                 NumeGen = gen.NumeGen,
-                Id = gen.Id
+            
             };
 
             return genDTO;
@@ -48,10 +57,48 @@ namespace proiectDAW.Servicii
             GenDTO genDTO = new GenDTO()
             {
                 NumeGen = gen.NumeGen,
-                Id = gen.Id
+         
             };
 
             return genDTO;
         }
+
+        //creare - din generic repo
+        public GenDTO CreateGen(Gen gen)
+        {
+            _genRepository.Create(gen);
+            _genRepository.Save();
+            GenDTO genDTO = new GenDTO()
+            {
+                NumeGen = gen.NumeGen,
+            };
+            return genDTO;
+        }
+
+        //update - custom
+ 
+        public GenDTO updateGen(Guid id, Gen gen)
+        {
+            _genRepository.updateGen(gen);
+            _genRepository.Save();
+            GenDTO genDTO = new GenDTO()
+            {
+                NumeGen = gen.NumeGen,
+            };
+            return genDTO;
+        }
+
+        //delete
+        public GenDTO deleteGen(Gen gen)
+        {
+            _genRepository.Delete(gen);
+            GenDTO genDTO = new GenDTO()
+            {
+                NumeGen = gen.NumeGen,
+            };
+            return genDTO;
+        }
+
+
     }
 }

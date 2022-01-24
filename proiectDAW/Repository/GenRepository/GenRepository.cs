@@ -16,6 +16,7 @@ namespace proiectDAW.Repository.GenRepository
 
         }
 
+        //get
         public Gen GetByTitle(string title)
         {
             return _table.FirstOrDefault(gen => gen.NumeGen.ToLower().Equals(title.ToLower()));
@@ -25,5 +26,13 @@ namespace proiectDAW.Repository.GenRepository
         {
             return _table.FirstOrDefault(x => x.Id.ToString().Equals(id.ToString()));
         }
+
+        //update
+        public void updateGen(Gen gen)
+        {
+            _table.Update(gen);
+        }
+
+
     }
 }
